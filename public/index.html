@@ -1,0 +1,49 @@
+<html>
+    <head>
+        <script type="module">
+            import { initializeApp } from "../node_modules/firebase/app";
+            import { getAnalytics } from "../node_modules/firebase/analytics";
+            const firebaseConfig = {
+            apiKey: "AIzaSyCRrh0MoPBIRRomFSQuQaPggS_KfS3ZymI",
+            authDomain: "goodsfindr.firebaseapp.com",
+            projectId: "goodsfindr",
+            storageBucket: "goodsfindr.appspot.com",
+            messagingSenderId: "701433129532",
+            appId: "1:701433129532:web:5d44b55c7401d66568f139",
+            measurementId: "G-CHEZF0PWJJ"
+            };
+            const app = initializeApp(firebaseConfig);
+            const analytics = getAnalytics(app);
+        </script>
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+        crossorigin=""/>
+        <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+        integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+        crossorigin=""></script>
+        <link rel="stylesheet" href="main.css">
+        <link rel="icon" href="small_logo.png" type="image/icon type">
+    </head>
+    <body>
+        <img src="logo.png" alt="GoodsFindr logo" class="center">
+        <h2>Find Nearest Locations</h2>
+        <form id="zipcodeForm">
+            <label for="zipcode">Enter Zip Code:</label>
+            <input type="text" id="zipcode" name="zipcode" maxlength="5" pattern="[0-9]{5}" required>
+            <button type="submit">Search</button>
+        </form>
+        <script>
+            document.getElementById("zipcodeForm").addEventListener("submit", function(evt){console.log("submitted")})
+            // document.getElementById("zipcodeForm").addEventListener("submit", function(event) {
+            //     var zipcode = document.getElementById("zipcode").value;
+            //     console.log("Zip Code entered: " + zipcode);
+            //     fetch('https://thezipcodes.com/api/v1/search?zipCode=' + zipcode + '&countryCode=US&apiKey=986167572cf1c2cca13d1e7b95d4a200', { json: true }, (err, res, body) => {
+            //       if (err) { return console.log(err); }
+            //         console.log(body);
+            //     }).then(() => console.log("reached"));
+            // });
+        </script>
+        <div id="map"></div>
+        <script src="main.js"></script>
+    </body>    
+</html>
